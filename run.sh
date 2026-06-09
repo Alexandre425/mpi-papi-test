@@ -1,0 +1,1 @@
+OMP_NUM_THREADS=4 mpirun -np 4 ./daxpy-scalar
