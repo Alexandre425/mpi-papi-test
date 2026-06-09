@@ -109,7 +109,6 @@ int main(int argc, char** argv) {
 
     #pragma omp parallel
     {
-        PAPI_register_thread();
         papi_check(PAPI_hl_region_begin("daxpy"), "PAPI_hl_region_begin");
 
         for (int rep = 0; rep < NREP; rep++) {
@@ -121,7 +120,6 @@ int main(int argc, char** argv) {
         }
 
         papi_check(PAPI_hl_region_end("daxpy"), "PAPI_hl_region_end");
-        PAPI_unregister_thread();
     }
 
     const double elapsed = MPI_Wtime() - t0;
